@@ -26,10 +26,11 @@ var ProjectService = (function () {
         var token = window.sessionStorage.getItem("token");
         var headers = new http_1.Headers({
             'Content-Type': 'application/json',
-            'Authorization': token
+            'Authorization': token,
         });
         var options = new http_1.RequestOptions({ headers: headers });
-        return this._http.get(this._url, options)
+        var url = encodeURI(this._url);
+        return this._http.get(url, options)
             .toPromise()
             .then(this.extractData)
             .catch(this.handleError);

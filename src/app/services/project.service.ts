@@ -22,11 +22,13 @@ export class ProjectService {
 
         let headers = new Headers({
             'Content-Type': 'application/json',
-            'Authorization': token
+            'Authorization': token,
         });
         let options = new RequestOptions({ headers: headers });
 
-        return this._http.get(this._url, options)
+        let url = encodeURI(this._url)
+
+        return this._http.get(url, options)
             .toPromise()
             .then(this.extractData)
             .catch(this.handleError);

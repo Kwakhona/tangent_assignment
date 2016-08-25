@@ -10,7 +10,7 @@ import { ProjectService } from '../services/project.service';
     providers: [ProjectService]
 })
 export class UserComponent implements OnInit{
-    private _projects = {   projects: [] };
+    //private _projects = {   projects: [] };
 
     constructor(private _projectService: ProjectService, private _router: Router){
         
@@ -21,13 +21,9 @@ export class UserComponent implements OnInit{
             this._router.navigate(['/home']);
         } else {
             this._projectService.getProjects()
-                .then( data=> {
-                    if(data !== null){
-                        this._projects.projects = data;
-                        console.log(JSON.stringify(this._projects.projects));
-                    } else {
-                        console.log("No Data");
-                    }
+                .then( data => {
+                    console.log(JSON.stringify(data));
+                    //this._projects.projects = data;
                 });
         }
     }

@@ -9,16 +9,21 @@ To run this project
     ```
     npm install
     ```
+
 2. Transpile Typescript files.
 
     ```
     npm run tsc
     ```
 
-    If you get an error, do not worry the issue is that Typescript tries to transpile the ts in node_modules, which it is not suppose to. The ts files in src folder will be transpiled correctly though.
-
 3. Build project with gulp and run it.
 
     ```
-    npm run build && npm run start
+    npm run build
     ```
+
+    The above script will run Typescript compiler ```npm run tsc``` and gup task ```gulp```.
+
+4. Run the application
+
+    ```npm run start```
