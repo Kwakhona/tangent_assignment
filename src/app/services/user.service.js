@@ -35,7 +35,7 @@ var UserService = (function () {
     };
     UserService.prototype.extractData = function (res) {
         var body = res.json();
-        return body.data || {};
+        return body || {};
     };
     UserService.prototype.handleError = function (error) {
         // In a real world app, we might use a remote logging infrastructure

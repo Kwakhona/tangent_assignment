@@ -1,0 +1,49 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'run',
+1 verbose cli   'tsc',
+1 verbose cli   '--verbose' ]
+2 info using npm@3.6.0
+3 info using node@v5.7.1
+4 verbose run-script [ 'pretsc', 'tsc', 'posttsc' ]
+5 info lifecycle practical-assignment@1.0.0~pretsc: practical-assignment@1.0.0
+6 silly lifecycle practical-assignment@1.0.0~pretsc: no script for pretsc, continuing
+7 info lifecycle practical-assignment@1.0.0~tsc: practical-assignment@1.0.0
+8 verbose lifecycle practical-assignment@1.0.0~tsc: unsafe-perm in lifecycle true
+9 verbose lifecycle practical-assignment@1.0.0~tsc: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Users\Kwaks\Downloads\D.A.W.G - Develop As We Grow\Personal n Career\Tangent Solutions\Practical Assignment\node_modules\.bin;C:\Users\Kwaks\bin;C:\Users\Kwaks\AppData\Local\Programs\Git\mingw64\bin;C:\Users\Kwaks\AppData\Local\Programs\Git\usr\local\bin;C:\Users\Kwaks\AppData\Local\Programs\Git\usr\bin;C:\Users\Kwaks\AppData\Local\Programs\Git\usr\bin;C:\Users\Kwaks\AppData\Local\Programs\Git\mingw64\bin;C:\Users\Kwaks\AppData\Local\Programs\Git\usr\bin;C:\Users\Kwaks\bin;C:\Program Files (x86)\Common Files\Intel\Shared Files\cpp\bin\Intel64;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files\nodejs;C:\Program Files\Microsoft\Web Platform Installer;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0;C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit;C:\Program Files\Microsoft SQL Server\110\Tools\Binn;C:\Program Files (x86)\Skype\Phone;C:\ProgramData\chocolatey\bin;C:\Program Files\Java\jdk1.8.0_102\bin;C:\Users\Kwaks\AppData\Local\Android\android-sdk\tools;C:\Users\Kwaks\AppData\Local\Android\android-sdk\platform-tools;C:\Ruby22-x64\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Users\Kwaks\AppData\Local\Programs\Git\cmd;C:\Users\Kwaks\AppData\Roaming\npm;C:\Program Files\Sublime Text 3;C:\Program Files\Java\jdk1.8.0_66\bin;C:\Users\Kwaks\Downloads\D.A.W.G - Develop As We Grow\Build Tools and SDKs\apache-maven-3.3.9-bin\apache-maven-3.3.9\bin;C:\Program Files (x86)\Microsoft VS Code\bin;C:\wamp64\bin\php\php7.0.4;C:\Users\Kwaks\AppData\Local\Android\android-sdk;C:\Users\Kwaks\AppData\Local\Programs\Git\usr\bin\vendor_perl;C:\Users\Kwaks\AppData\Local\Programs\Git\usr\bin\core_perl
+10 verbose lifecycle practical-assignment@1.0.0~tsc: CWD: C:\Users\Kwaks\Downloads\D.A.W.G - Develop As We Grow\Personal n Career\Tangent Solutions\Practical Assignment
+11 silly lifecycle practical-assignment@1.0.0~tsc: Args: [ '/d /s /c', 'tsc' ]
+12 silly lifecycle practical-assignment@1.0.0~tsc: Returned: code: 2  signal: null
+13 info lifecycle practical-assignment@1.0.0~tsc: Failed to exec tsc script
+14 verbose stack Error: practical-assignment@1.0.0 tsc: `tsc`
+14 verbose stack Exit status 2
+14 verbose stack     at EventEmitter.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\lifecycle.js:232:16)
+14 verbose stack     at emitTwo (events.js:100:13)
+14 verbose stack     at EventEmitter.emit (events.js:185:7)
+14 verbose stack     at ChildProcess.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\spawn.js:24:14)
+14 verbose stack     at emitTwo (events.js:100:13)
+14 verbose stack     at ChildProcess.emit (events.js:185:7)
+14 verbose stack     at maybeClose (internal/child_process.js:827:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
+15 verbose pkgid practical-assignment@1.0.0
+16 verbose cwd C:\Users\Kwaks\Downloads\D.A.W.G - Develop As We Grow\Personal n Career\Tangent Solutions\Practical Assignment
+17 error Windows_NT 10.0.10586
+18 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "run" "tsc" "--verbose"
+19 error node v5.7.1
+20 error npm  v3.6.0
+21 error code ELIFECYCLE
+22 error practical-assignment@1.0.0 tsc: `tsc`
+22 error Exit status 2
+23 error Failed at the practical-assignment@1.0.0 tsc script 'tsc'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the practical-assignment package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     tsc
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs practical-assignment
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls practical-assignment
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]
