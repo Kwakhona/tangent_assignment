@@ -5,6 +5,7 @@ An angular 2 application to showcase the ability to use Yeoman, BootStrap and We
 To run this project
 
 1. Install Angular 2
+
     ```
     npm install
     ```
@@ -13,7 +14,7 @@ To run this project
     ```
     npm run tsc
     ```
-    
+
     If you get an error, do not worry the issue is that Typescript tries to transpile the ts in node_modules, which it is not suppose to. The ts files in src folder will be transpiled correctly though.
 
 3. Build project with gulp and run it.
