@@ -27,18 +27,29 @@ var LoginComponent = (function () {
     }
     LoginComponent.prototype.ngOnInit = function () {
     };
+    /**
+     * Login method triggered by the user
+     *
+     * logs in user in if credentials are correct and show error if the is an issue
+     */
     LoginComponent.prototype.Login = function () {
+        var _this = this;
         var user = {
             username: "",
             password: ""
         };
         user.username = this._username.value;
         user.password = this._password.value;
-        console.log(JSON.stringify(user));
         this._userService.Login(user)
             .then(function (data) {
-            console.log("Data: " + JSON.stringify(data));
-        }, function (error) { return console.log("Error: " + JSON.stringify(error)); });
+            if (data.error) {
+                console.error(JSON.stringify(data.error));
+            }
+            else {
+                window.sessionStorage.setItem("token", data.token);
+                _this._router.navigate(['/user', user.username]);
+            }
+        });
     };
     LoginComponent = __decorate([
         core_1.Component({

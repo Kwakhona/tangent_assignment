@@ -16,8 +16,10 @@ var app_comp_1 = require('./app.comp');
 var login_comp_1 = require('./login/login.comp');
 var home_comp_1 = require('./home/home.comp');
 var user_comp_1 = require('./user/user.comp');
+// Routing and Services
 var route_config_1 = require('./routes/route.config');
 var user_service_1 = require('./services/user.service');
+var project_service_1 = require('./services/project.service');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -25,7 +27,7 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, route_config_1.routing, forms_1.FormsModule, http_1.HttpModule],
             declarations: [app_comp_1.AppComponent, login_comp_1.LoginComponent, home_comp_1.HomeComponent, user_comp_1.UserComponent],
-            providers: [user_service_1.UserService, forms_1.FORM_PROVIDERS],
+            providers: [user_service_1.UserService, project_service_1.ProjectService, forms_1.FORM_PROVIDERS],
             bootstrap: [app_comp_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

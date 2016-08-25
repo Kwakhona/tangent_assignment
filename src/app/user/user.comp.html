@@ -1,20 +1,36 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6 col-xs-12">
+        <div class="col-md-12 col-xs-12">
             <div class="panel panel-default">
-                <!-- Default panel contents -->
                 <div class="panel-heading">Projects</div>
                 <div class="panel-body">
-                    <p>...</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-xs-12">
-            <div class="panel panel-default">
-                <!-- Default panel contents -->
-                <div class="panel-heading">Tasks</div>
-                <div class="panel-body">
-                    <p>...</p>
+                    <ul class="list-group">
+                        <!--<li class="list-group-item" *ngFor="let project of _projects.projects">
+                            <h4 class="list-group-item-heading">{{project.title}} <div align="right">Duration: {{project.start_date}} - {{project.end_date}}</div></h4>
+                            <p class="list-group-item-text">{{project.description}}</p>
+
+                            <div class="panel panel-default" id="collapse">
+                                <div class="panel-heading" >
+                                    Tasks
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tasks"
+                                        aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item" *ngFor="let task of _projects.projects.task_set">
+                                            <h4 class="list-group-item-heading">{{task.title}} <div align="rigth">Due: {{task.due_date}}</div></h4>
+                                            <p class="list-group-item-text">Duration: {{task.estimated_hours}}</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>-->
+                    </ul>
                 </div>
             </div>
         </div>

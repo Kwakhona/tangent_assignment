@@ -18,7 +18,7 @@ var appRoutes = [
         component: login_comp_1.LoginComponent
     },
     {
-        path: 'user',
+        path: 'user/:username',
         component: user_comp_1.UserComponent
     }
 ];

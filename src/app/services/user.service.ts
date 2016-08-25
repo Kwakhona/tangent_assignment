@@ -18,7 +18,7 @@ export class UserService {
      * @param _user
 	 *            the {@link User} Object from login form
 	 * 
-     * @return the {@link Observable<User>} with/without token
+     * @return the {@link Observable} as error and/or data from server
      */
     public Login(_user: any){
         let headers = new Headers({ 'Content-Type': 'application/json' });
@@ -30,7 +30,7 @@ export class UserService {
                         .catch(this.handleError);
     }
 
-     private extractData(res: Response) {
+    private extractData(res: Response) {
         let body = res.json();
        
         return body || { };
@@ -41,7 +41,7 @@ export class UserService {
         // We'd also dig deeper into the error to get a better message
         let errMsg = (error.message) ? error.message :
             error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-        console.error(errMsg); // log to console instead
+        console.error("ERROR: " + errMsg); // log to console instead
         return Observable.throw(errMsg);
     }
 }

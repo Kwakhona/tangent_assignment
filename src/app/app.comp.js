@@ -9,15 +9,41 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(_router) {
+        this._router = _router;
+        this.loggedIn = false;
     }
+    /**
+     * Method initialized everytime the nav bar loads
+     *
+     * @return void
+     */
+    AppComponent.prototype.ngOnInit = function () {
+        if (window.sessionStorage.getItem("token") === null) {
+            this.loggedIn = false;
+            this._router.navigate(['/home']);
+        }
+        else {
+            this.loggedIn = true;
+        }
+    };
+    /**
+     * Method to destroys the the token from the and logout user
+     *
+     * @retun void
+     */
+    AppComponent.prototype.Logout = function () {
+        window.sessionStorage.removeItem("token");
+        this._router.navigate(['/home']);
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'main',
             templateUrl: './app/app.comp.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.Router])
     ], AppComponent);
     return AppComponent;
 }());

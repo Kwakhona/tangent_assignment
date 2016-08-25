@@ -8,13 +8,15 @@ import { LoginComponent } from './login/login.comp';
 import { HomeComponent } from './home/home.comp';
 import { UserComponent } from './user/user.comp';
 
+// Routing and Services
 import { routing } from './routes/route.config';
 import { UserService } from './services/user.service';
+import { ProjectService } from './services/project.service';
 
 @NgModule({
     imports:        [BrowserModule, routing, FormsModule, HttpModule],
     declarations:   [AppComponent, LoginComponent, HomeComponent, UserComponent],
-    providers:      [UserService, FORM_PROVIDERS],
+    providers:      [UserService, ProjectService, FORM_PROVIDERS],
     bootstrap:      [AppComponent]
 })
 export class AppModule{}
