@@ -26,4 +26,6 @@ To run this project
 
 4. Run the application
 
-    ```npm run start```
+    ```
+    npm run start
+    ```
