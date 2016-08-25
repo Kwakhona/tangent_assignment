@@ -10,7 +10,7 @@ import { ProjectService } from '../services/project.service';
     providers: [ProjectService]
 })
 export class UserComponent implements OnInit{
-    //private _projects = {   projects: [] };
+    private _projects = {   projects: [] };
 
     constructor(private _projectService: ProjectService, private _router: Router){
         
@@ -22,8 +22,7 @@ export class UserComponent implements OnInit{
         } else {
             this._projectService.getProjects()
                 .then( data => {
-                    console.log(JSON.stringify(data));
-                    //this._projects.projects = data;
+                    this._projects.projects = data;
                 });
         }
     }

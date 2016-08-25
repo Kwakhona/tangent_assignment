@@ -12,20 +12,20 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var project_service_1 = require('../services/project.service');
 var UserComponent = (function () {
-    //private _projects = {   projects: [] };
     function UserComponent(_projectService, _router) {
         this._projectService = _projectService;
         this._router = _router;
+        this._projects = { projects: [] };
     }
     UserComponent.prototype.ngOnInit = function () {
+        var _this = this;
         if (window.sessionStorage.getItem("token") === null) {
             this._router.navigate(['/home']);
         }
         else {
             this._projectService.getProjects()
                 .then(function (data) {
-                console.log(JSON.stringify(data));
-                //this._projects.projects = data;
+                _this._projects.projects = data;
             });
         }
     };
