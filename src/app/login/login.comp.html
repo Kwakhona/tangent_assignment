@@ -1,0 +1,19 @@
+<div class="container">
+    <form  [formGroup]="loginForm">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" formControlName="username" placeholder="Username" id="username">
+            <div *ngIf="loginForm.hasError('required', 'username')" class="alert alert-danger">
+                Username is required
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" formControlName="password" id="password" placeholder="Password">
+            <div *ngIf="loginForm.hasError('required', 'password')" class="alert alert-danger">
+                Password is required
+            </div>
+        </div>
+        <button class="btn btn-primary" [disabled]="!loginForm.valid" (click)="Login()">Submit</button>
+    </form>
+</div>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="">
+<base href="/">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tangent Solutions</title>
+</head>
+
+<body>
+
+  <main>Loading...</main>
+
+  <script src="lib/traceur-runtime.js"></script>
+
+  <script src="lib/shim.min.js"></script>
+  <script src="lib/zonejs/dist/zone.js"></script>
+  <script src="lib/system-csp-production.src.js"></script>
+  <script src="lib/Reflect.js"></script>
+  <script src="lib/system.src.js"></script>
+
+  <script src="lib/jquery.min.js"></script>
+  
+  <link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css">
+  <script src="lib/bootstrap/bootstrap.min.js"></script>
+
+  <!-- 2. Configure SystemJS -->
+  <script src="systemjs.config.js"></script>
+  <script>
+        System.import('app').catch(function(err){
+            console.err(err);
+        });
+    </script>
+
+</body>
+
+</html>
