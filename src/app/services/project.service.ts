@@ -32,7 +32,30 @@ export class ProjectService {
             .toPromise()
             .then(this.extractData)
             .catch(this.handleError);
+    }
 
+    /**
+     * Method which does a call to add a project
+     * 
+     * @param task
+     * 
+     * @return Promise as JSON data
+     * 
+     */
+    addProject(project: any){
+        let token = window.sessionStorage.getItem("token");
+
+        let headers = new Headers({
+            'Content-Type': 'application/json',
+            'Authorization': token,
+        });
+        let options = new RequestOptions({ headers: headers });
+
+        let url = encodeURI(this._url);
+        return this._http.post(url, project, options)
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
     }
 
     /**

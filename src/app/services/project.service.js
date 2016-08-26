@@ -36,6 +36,27 @@ var ProjectService = (function () {
             .catch(this.handleError);
     };
     /**
+     * Method which does a call to add a project
+     *
+     * @param task
+     *
+     * @return Promise as JSON data
+     *
+     */
+    ProjectService.prototype.addProject = function (project) {
+        var token = window.sessionStorage.getItem("token");
+        var headers = new http_1.Headers({
+            'Content-Type': 'application/json',
+            'Authorization': token,
+        });
+        var options = new http_1.RequestOptions({ headers: headers });
+        var url = encodeURI(this._url);
+        return this._http.post(url, project, options)
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
+    };
+    /**
      * A method to extract and return data from a http call
      * @param res as Response object
      *

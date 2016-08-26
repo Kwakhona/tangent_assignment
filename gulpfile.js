@@ -4,7 +4,7 @@ var gulp = require('gulp'),
     webserver = require('gulp-webserver');
 
 // run init tasks
-gulp.task('default', ['dependencies', '@angular', 'rxjs', 'angular2-in-memory-web-api', 'zonejs', 'bootstrap', 'js', 'html', 'css']);
+gulp.task('default', ['dependencies', '@angular', 'rxjs', 'angular2-in-memory-web-api', 'zonejs', 'bootstrap', 'fonts', 'js', 'html', 'css']);
 
 // run development task
 gulp.task('dev', ['watch', 'serve']);
@@ -67,12 +67,18 @@ gulp.task('zonejs', function () {
 // move bootstrap dependencies into build dir
 gulp.task('bootstrap', function(){
   return gulp.src([
-    'node_modules/bootstrap/dist/fonts/*/*.*',
     'node_modules/bootstrap/dist/css/bootstrap.min.css',
     'node_modules/bootstrap/dist/js/bootstrap.min.js'
   ])
     .pipe(gulp.dest('build/lib/bootstrap'));
-})
+});
+// move bootstrap dependencies into build dir
+gulp.task('fonts', function(){
+  return gulp.src([
+    'node_modules/bootstrap/dist/fonts/**/*.*'
+  ])
+    .pipe(gulp.dest('build/lib/fonts'));
+});
     
 // move html
 gulp.task('js', function () {
