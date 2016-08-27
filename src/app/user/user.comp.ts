@@ -101,7 +101,7 @@ export class UserComponent implements OnInit{
         } else {
             this._projectService.addProject(project)
                             .then( data => {
-                                    if(!data.error){
+                                    if(!data.error || !data.detail){
                                         this._added.success = true;
                                         this.ngOnInit(); 
                                     } else {
@@ -144,11 +144,32 @@ export class UserComponent implements OnInit{
         } else {
             this._projectService.updateProject(project)
                             .then( data => {
-                                if(!data.error){
+                                if(!data.detail || !data.error){
                                     this._edited.success = true;
                                     this.ngOnInit();
                                 }
                             });
+        }
+    }
+
+    deleteProject(project: any): void {
+        if(window.sessionStorage.getItem("token") === null){
+            this._router.navigate(['/home']);
+        } else {
+            if(confirm("Are you sure you want to delete Project: " + project.title) === true){
+                this._projectService.deleteProject(project)
+                                    .then(
+                                        data=> {
+                                            if(!data.detail){
+                                                alert("You have succesfully deleted a project: "+ project.title);
+                                                this.ngOnInit();
+                                            } else {
+                                                alert(data.details + " is not found. Please try again.");
+                                                this.ngOnInit();
+                                            }
+                                        }
+                                    );
+            }
         }
     }
 

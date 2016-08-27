@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit {
                             console.error(JSON.stringify(data.error));
                         } else {
                             window.sessionStorage.setItem("token", data.token);
+                            alert("Welcome user: "+ user.username);
                             this._router.navigate(['/user', user.username]);
                         }
                     }

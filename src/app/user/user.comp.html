@@ -3,11 +3,13 @@
         <div class="col-md-6 col-xs-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <div align="left">Projects</div>
-                    <div align="right" class="btn-group" role="group">
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#newProject">
-                            <span class="glyphicon glyphicon-plus"></span>
-                        </button>
+                    <div align="left">
+                        Projects
+                        <div style="margin-left: 81%;" class="btn-group" role="group">
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#newProject">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="panel-body">
@@ -18,11 +20,11 @@
                                     <tr>
                                         <td><em><strong>{{project.title}}</strong></em></td>
                                         <td>
-                                            <div align="right" class="btn-group" role="group">
+                                            <div style="float: right" class="btn-group" role="group">
                                                 <button type="button" class="btn btn-warning" (click)="editP(project)" data-toggle="modal" data-target="#editProject">
                                                     <span class="glyphicon glyphicon-edit"></span>
                                                 </button>
-                                                <button type="button" class="btn btn-danger" >
+                                                <button type="button" class="btn btn-danger" (click)="deleteProject(project)">
                                                     <span class="glyphicon glyphicon-minus"></span>
                                                 </button>
                                             </div>

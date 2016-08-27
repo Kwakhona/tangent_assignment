@@ -92,7 +92,7 @@ var UserComponent = (function () {
         else {
             this._projectService.addProject(project)
                 .then(function (data) {
-                if (!data.error) {
+                if (!data.error || !data.detail) {
                     _this._added.success = true;
                     _this.ngOnInit();
                 }
@@ -134,11 +134,32 @@ var UserComponent = (function () {
         else {
             this._projectService.updateProject(project)
                 .then(function (data) {
-                if (!data.error) {
+                if (!data.detail || !data.error) {
                     _this._edited.success = true;
                     _this.ngOnInit();
                 }
             });
+        }
+    };
+    UserComponent.prototype.deleteProject = function (project) {
+        var _this = this;
+        if (window.sessionStorage.getItem("token") === null) {
+            this._router.navigate(['/home']);
+        }
+        else {
+            if (confirm("Are you sure you want to delete Project: " + project.title) === true) {
+                this._projectService.deleteProject(project)
+                    .then(function (data) {
+                    if (!data.detail) {
+                        alert("You have succesfully deleted a project: " + project.title);
+                        _this.ngOnInit();
+                    }
+                    else {
+                        alert(data.details + " is not found. Please try again.");
+                        _this.ngOnInit();
+                    }
+                });
+            }
         }
     };
     UserComponent.prototype.closeModal = function () {

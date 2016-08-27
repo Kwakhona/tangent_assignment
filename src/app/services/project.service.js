@@ -57,7 +57,7 @@ var ProjectService = (function () {
             .catch(this.handleError);
     };
     /**
-     * Metho which does a http call to update a project infor
+     * Metho which does a http call to update a project info
      *
      * @param project
      *
@@ -72,6 +72,26 @@ var ProjectService = (function () {
         var options = new http_1.RequestOptions({ headers: headers });
         var url = encodeURI(this._url + project.pk + "/");
         return this._http.put(url, project, options)
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
+    };
+    /**
+     * Metho which does a http call to delete a project using the pk
+     *
+     * @param project
+     *
+     * @return Promise as JSON data
+     */
+    ProjectService.prototype.deleteProject = function (project) {
+        var token = window.sessionStorage.getItem("token");
+        var headers = new http_1.Headers({
+            'Content-Type': 'application/json',
+            'Authorization': token,
+        });
+        var options = new http_1.RequestOptions({ headers: headers });
+        var url = encodeURI(this._url + project.pk + "/");
+        return this._http.delete(url, options)
             .toPromise()
             .then(this.extractData)
             .catch(this.handleError);

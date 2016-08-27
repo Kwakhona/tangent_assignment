@@ -100,7 +100,7 @@ export class ProjectService {
 
         let url = encodeURI(this._url + project.pk +"/");
 
-        this._http.delete(url, options)
+        return this._http.delete(url, options)
                             .toPromise()
                             .then(this.extractData)
                             .catch(this.handleError);
