@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
                 .then(
                     data => {
                         if(data.error){
-                            console.error(JSON.stringify(data.error));
+                            alert(JSON.stringify(data.error));
                         } else {
                             window.sessionStorage.setItem("token", data.token);
                             alert("Welcome user: "+ user.username);

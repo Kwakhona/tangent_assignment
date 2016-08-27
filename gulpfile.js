@@ -1,28 +1,9 @@
 var gulp = require('gulp'),
     rename = require('gulp-rename'),
-    traceur = require('gulp-traceur'),
-    webserver = require('lite-server');
+    traceur = require('gulp-traceur');
 
 // run init tasks
 gulp.task('default', ['dependencies', '@angular', 'rxjs', 'angular2-in-memory-web-api', 'zonejs', 'bootstrap', 'fonts', 'js', 'html', 'css']);
-
-// run development task
-gulp.task('dev', ['watch', 'serve']);
-
-// serve the build dir
-gulp.task('serve', function () {
-  gulp.src('build')
-    .pipe(webserver({
-      open: true
-    }));
-});
-
-// watch for changes and run the relevant task
-gulp.task('watch', function () {
-  gulp.watch('src/**/*.js', ['js']);
-  gulp.watch('src/**/*.html', ['html']);
-  gulp.watch('src/**/*.css', ['css']);
-});
 
 // move dependencies into build dir
 gulp.task('dependencies', function () {

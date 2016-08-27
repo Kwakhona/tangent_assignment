@@ -12,6 +12,7 @@ import { ProjectService } from '../services/project.service';
     providers: [FormBuilder, ProjectService]
 })
 export class UserComponent implements OnInit{
+    
     private _projects = {   projects: [] };
     private _task = { tasks: [] };
     private _added = { success: false };

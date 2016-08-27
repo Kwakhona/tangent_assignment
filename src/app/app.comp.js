@@ -12,8 +12,17 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var AppComponent = (function () {
     function AppComponent(_router) {
+        var _this = this;
         this._router = _router;
         this.loggedIn = false;
+        setInterval(function () {
+            if (window.sessionStorage.getItem("token") === null) {
+                _this.loggedIn = false;
+            }
+            else {
+                _this.loggedIn = true;
+            }
+        }, 1000);
     }
     /**
      * Method initialized everytime the nav bar loads
@@ -23,7 +32,6 @@ var AppComponent = (function () {
     AppComponent.prototype.ngOnInit = function () {
         if (window.sessionStorage.getItem("token") === null) {
             this.loggedIn = false;
-            this._router.navigate(['/home']);
         }
         else {
             this.loggedIn = true;
