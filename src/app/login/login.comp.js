@@ -47,6 +47,7 @@ var LoginComponent = (function () {
             }
             else {
                 window.sessionStorage.setItem("token", data.token);
+                alert("Welcome user: " + user.username);
                 _this._router.navigate(['/user', user.username]);
             }
         });

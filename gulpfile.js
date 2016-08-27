@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
     rename = require('gulp-rename'),
     traceur = require('gulp-traceur'),
-    webserver = require('gulp-webserver');
+    webserver = require('lite-server');
 
 // run init tasks
 gulp.task('default', ['dependencies', '@angular', 'rxjs', 'angular2-in-memory-web-api', 'zonejs', 'bootstrap', 'fonts', 'js', 'html', 'css']);
