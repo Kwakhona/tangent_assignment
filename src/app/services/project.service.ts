@@ -37,7 +37,7 @@ export class ProjectService {
     /**
      * Method which does a call to add a project
      * 
-     * @param task
+     * @param project
      * 
      * @return Promise as JSON data
      * 
@@ -56,6 +56,54 @@ export class ProjectService {
             .toPromise()
             .then(this.extractData)
             .catch(this.handleError);
+    }
+
+    /**
+     * Metho which does a http call to update a project info
+     * 
+     * @param project
+     * 
+     * @return Promise as JSON data
+     */
+    updateProject(project: any){
+        let token = window.sessionStorage.getItem("token");
+
+        let headers = new Headers({
+            'Content-Type': 'application/json',
+            'Authorization': token,
+        });
+        let options = new RequestOptions({ headers: headers });
+
+        let url = encodeURI(this._url + project.pk +"/");
+
+        return this._http.put(url, project, options)
+                            .toPromise()
+                            .then(this.extractData)
+                            .catch(this.handleError);
+    }
+
+    /**
+     * Metho which does a http call to delete a project using the pk
+     * 
+     * @param project
+     * 
+     * @return Promise as JSON data
+     */
+    deleteProject(project: any){
+        let token = window.sessionStorage.getItem("token");
+
+        let headers = new Headers({
+            'Content-Type': 'application/json',
+            'Authorization': token,
+        });
+        let options = new RequestOptions({ headers: headers });
+
+        let url = encodeURI(this._url + project.pk +"/");
+
+        this._http.delete(url, options)
+                            .toPromise()
+                            .then(this.extractData)
+                            .catch(this.handleError);
     }
 
     /**

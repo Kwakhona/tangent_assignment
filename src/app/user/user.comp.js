@@ -18,20 +18,35 @@ var UserComponent = (function () {
         this._router = _router;
         this._projects = { projects: [] };
         this._task = { tasks: [] };
+        this._added = { success: false };
+        this._edited = { success: false };
+        this.editF = {
+            pk: "",
+            title: "",
+            description: "",
+            start_date: "",
+            end_date: "",
+            is_billable: false,
+            is_active: false
+        };
         this.projectForm = builder.group({
+            pk: [""],
             title: ["", forms_1.Validators.required],
             description: ["", forms_1.Validators.required],
             start_date: ["", forms_1.Validators.required],
-            end_date: ["", forms_1.Validators.required],
+            end_date: [""],
             is_billable: ["", forms_1.Validators.required],
             is_active: ["", forms_1.Validators.required]
         });
-        this._title = this.projectForm.controls['title'];
-        this._description = this.projectForm.controls['description'];
-        this._start_date = this.projectForm.controls['start_date'];
-        this._end_date = this.projectForm.controls['end_date'];
-        this._is_billable = this.projectForm.controls['is_billable'];
-        this._is_active = this.projectForm.controls['is_active'];
+        this.editPForm = builder.group({
+            pk: [""],
+            title: ["", forms_1.Validators.required],
+            description: ["", forms_1.Validators.required],
+            start_date: ["", forms_1.Validators.required],
+            end_date: [""],
+            is_billable: [""],
+            is_active: [""]
+        });
     }
     UserComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -54,6 +69,13 @@ var UserComponent = (function () {
         }
     };
     UserComponent.prototype.addProject = function () {
+        var _this = this;
+        this._title = this.projectForm.controls['title'];
+        this._description = this.projectForm.controls['description'];
+        this._start_date = this.projectForm.controls['start_date'];
+        this._end_date = this.projectForm.controls['end_date'];
+        this._is_billable = this.projectForm.controls['is_billable'];
+        this._is_active = this.projectForm.controls['is_active'];
         var project = {
             title: this._title.value,
             description: this._description.value,
@@ -64,14 +86,64 @@ var UserComponent = (function () {
             task_set: [],
             resource_set: []
         };
-        console.log(JSON.stringify(project));
         if (window.sessionStorage.getItem("token") === null) {
             this._router.navigate(['/home']);
         }
         else {
             this._projectService.addProject(project)
-                .then(function (data) { });
+                .then(function (data) {
+                if (!data.error) {
+                    _this._added.success = true;
+                    _this.ngOnInit();
+                }
+                else {
+                    _this._added.success = false;
+                }
+            });
         }
+    };
+    UserComponent.prototype.editP = function (project) {
+        this.editF.pk = project.pk;
+        this.editF.title = project.title;
+        this.editF.description = project.description;
+        this.editF.start_date = project.start_date;
+        this.editF.end_date = project.end_date;
+        this.editF.is_billable = project.is_billable;
+        this.editF.is_active = project.is_active;
+    };
+    UserComponent.prototype.editProject = function () {
+        var _this = this;
+        this._title = this.editPForm.controls['title'];
+        this._description = this.editPForm.controls['description'];
+        this._start_date = this.editPForm.controls['start_date'];
+        this._end_date = this.editPForm.controls['end_date'];
+        this._is_billable = this.editPForm.controls['is_billable'];
+        this._is_active = this.editPForm.controls['is_active'];
+        var project = {
+            pk: this.editPForm.controls['pk'].value,
+            title: this._title.value,
+            description: this._description.value,
+            start_date: this._start_date.value,
+            end_date: this._end_date.value,
+            is_billable: this._is_billable.value,
+            is_active: this._is_active.value
+        };
+        if (window.sessionStorage.getItem("token") === null) {
+            this._router.navigate(['/home']);
+        }
+        else {
+            this._projectService.updateProject(project)
+                .then(function (data) {
+                if (!data.error) {
+                    _this._edited.success = true;
+                    _this.ngOnInit();
+                }
+            });
+        }
+    };
+    UserComponent.prototype.closeModal = function () {
+        this._added.success = false;
+        this._edited.success = false;
     };
     UserComponent = __decorate([
         core_1.Component({

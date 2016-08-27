@@ -38,7 +38,7 @@ var ProjectService = (function () {
     /**
      * Method which does a call to add a project
      *
-     * @param task
+     * @param project
      *
      * @return Promise as JSON data
      *
@@ -52,6 +52,26 @@ var ProjectService = (function () {
         var options = new http_1.RequestOptions({ headers: headers });
         var url = encodeURI(this._url);
         return this._http.post(url, project, options)
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
+    };
+    /**
+     * Metho which does a http call to update a project infor
+     *
+     * @param project
+     *
+     * @return Promise as JSON data
+     */
+    ProjectService.prototype.updateProject = function (project) {
+        var token = window.sessionStorage.getItem("token");
+        var headers = new http_1.Headers({
+            'Content-Type': 'application/json',
+            'Authorization': token,
+        });
+        var options = new http_1.RequestOptions({ headers: headers });
+        var url = encodeURI(this._url + project.pk + "/");
+        return this._http.put(url, project, options)
             .toPromise()
             .then(this.extractData)
             .catch(this.handleError);
