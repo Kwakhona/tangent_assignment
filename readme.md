@@ -29,3 +29,6 @@ To run this project
     ```
     npm run start
     ```
+
+
+    The ```gulp``` command runs copying the the src files to buld folder and ```npm run lite-server``` runs the Angular 2 applicantion from the build folder.
